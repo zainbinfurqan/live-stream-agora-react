@@ -199,7 +199,7 @@ export default class Call extends Component {
             />
           );
         })} */}
-        <div id="agora_local" className="agora_local" style={{}} />
+        <div id="agora_local" className="agora_local" style={{ width: "400px", height: "400px" }} />
 
         {Object.keys(this.state.remoteStreams).map(key => {
           let stream = this.state.remoteStreams[key];
