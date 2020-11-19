@@ -1,0 +1,26 @@
+.streeming-main{
+    height: 100vh;
+    border: solid 0.5px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.agora_local-screenshare{
+    height: 500px;
+    width: 60%;
+    border: solid;
+    margin: 10px;
+}
+.agora_local{
+    height: 500px;
+    width: 35%;
+    border: solid;
+    margin: 10px;
+}
+.agora_local-video{
+    height: 500px;
+    width: 60%;
+    border: solid;
+    margin: 10px;
+    position: absolute;
+}
