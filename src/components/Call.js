@@ -4,16 +4,16 @@ import { isFirefox } from './common'
 import './style.css'
 
 let client = AgoraRTC.createClient({ mode: "live", codec: "h264" });
-
+client.setClientRole("host")
 const USER_ID = Math.floor(Math.random() * 1000000001);
 const APP_ID = "fc5136ca373f47599de2ef68059b1663";
 
-let data_ = {
-  streamID: USER_ID,
-  audio: true,
-  video: false,
-  screen: true
-}
+// let data_ = {
+//   streamID: USER_ID,
+//   audio: true,
+//   video: false,
+//   screen: true
+// }
 let data__ = {
   streamID: USER_ID,
   audio: true,
@@ -30,7 +30,7 @@ export default class Call extends Component {
   localStream = AgoraRTC.createStream({ ...data__ });
 
   // for screen share
-  localStreamScreenShare = AgoraRTC.createStream({ ...data_ });
+  // localStreamScreenShare = AgoraRTC.createStream({ ...data_ });
 
   state = {
     remoteStreams: []
@@ -42,6 +42,7 @@ export default class Call extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate")
     if (prevProps.channel !== this.props.channel && this.props.channel !== "") {
       this.joinChannel();
     }
@@ -58,15 +59,15 @@ export default class Call extends Component {
         console.log("getUserMedia-1 failed", err);
       }
     );
-    me.localStreamScreenShare.init(
-      function () {
-        console.log("getUserMedia-2 successfully");
-        me.localStreamScreenShare.play("agora_local-screenshare");
-      },
-      function (err) {
-        console.log("getUserMedia-2 failed", err);
-      }
-    );
+    // me.localStreamScreenShare.init(
+    //   function () {
+    //     console.log("getUserMedia-2 successfully");
+    //     me.localStreamScreenShare.play("agora_local-screenshare");
+    //   },
+    //   function (err) {
+    //     console.log("getUserMedia-2 failed", err);
+    //   }
+    // );
   };
 
   initClient = () => {
@@ -124,9 +125,9 @@ export default class Call extends Component {
         client.publish(me.localStream, function (err) {
           console.log("Publish local stream error: " + err);
         });
-        client.publish(me.localStreamScreenShare, function (err) {
-          console.log("Publish local stream error: " + err);
-        });
+        // client.publish(me.localStreamScreenShare, function (err) {
+        //   console.log("Publish local stream error: " + err);
+        // });
 
         client.on("stream-published", function (evt) {
           console.log("Publish local stream successfully");
@@ -183,7 +184,7 @@ export default class Call extends Component {
     return (
       <div className="streeming-main">
 
-        <div id="agora_local-screenshare" className="agora_local-screenshare" style={{}} />
+        {/* <div id="agora_local-screenshare" className="agora_local-screenshare" style={{}} />
         <iframe className="agora_local-video" src="https://www.youtube.com/embed/tgbNymZ7vqY">
         </iframe>
         {Object.keys(this.state.remoteStreams).map(key => {
@@ -197,7 +198,7 @@ export default class Call extends Component {
             // style={{ width: "400px", height: "400px" }}
             />
           );
-        })}
+        })} */}
         <div id="agora_local" className="agora_local" style={{}} />
 
         {Object.keys(this.state.remoteStreams).map(key => {

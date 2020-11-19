@@ -17,7 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ChannelForm selectChannel={this.selectChannel} />
+        {console.log("this.state.channel", this.state.channel)}
+        {<ChannelForm selectChannel={this.selectChannel} />}
         <Call channel={this.state.channel} />
       </div>
     );
