@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AgoraRTC from "agora-rtc-sdk";
-import { isFirefox } from './common'
 import './style.css'
 
 let client = AgoraRTC.createClient({ mode: "live", codec: "h264" });
@@ -88,9 +87,9 @@ export default class Call extends Component {
     client.on("stream-added", me.onStreamAdded);
     client.on("stream-subscribed", me.onRemoteClientAdded);
 
-    client.on("stream-removed", me.onStreamRemoved);
+    // client.on("stream-removed", me.onStreamRemoved);
 
-    client.on("peer-leave", me.onPeerLeave);
+    // client.on("peer-leave", me.onPeerLeave);
   };
 
   onStreamAdded = evt => {
