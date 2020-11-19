@@ -183,6 +183,7 @@ export default class Call extends Component {
   render() {
     return (
       <div className="streeming-main">
+        {console.log("remoteStreams=>", this.state.remoteStreams)}
 
         {/* <div id="agora_local-screenshare" className="agora_local-screenshare" style={{}} />
         <iframe className="agora_local-video" src="https://www.youtube.com/embed/tgbNymZ7vqY">
