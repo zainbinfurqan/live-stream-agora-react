@@ -84,7 +84,7 @@ class App extends Component {
   render() {
     return (
 
-      <a href="intent://scan/Home/#Intent;scheme=mychat;package=com.google.mychat.client.android;end">
+      <a href="mychat://app.com/?screen=Users">
         <p>Open App</p>
       </a>
       // <div className="App">
