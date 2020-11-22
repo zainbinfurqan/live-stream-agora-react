@@ -83,7 +83,7 @@ class App extends Component {
 
   render() {
     return (
-      <a href="intent://scan/#Intent;scheme=com.example.android;package=com.example.android;end">
+      <a href="intent://scan/#Intent;scheme=com.mychat.android;package=com.mychat.android;end">
         <p>Open App</p>
       </a>
       // <div className="App">
